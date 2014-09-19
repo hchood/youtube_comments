@@ -11,3 +11,10 @@
     <li><%= comment.body %></li>
   <% end %>
 </ul>
+
+<div>
+  <%= form_for [@video, @comment] do |f| %>
+    <%= f.text_area :body %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+</div>
