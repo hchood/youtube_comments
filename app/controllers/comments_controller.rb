@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @video, notice: 'Comment created.'
     else
+      flash[:notice] = 'Comment could not be saved.'
       render 'videos/show'
     end
   end

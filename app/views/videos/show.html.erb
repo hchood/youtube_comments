@@ -14,6 +14,15 @@
 
 <div>
   <%= form_for [@video, @comment] do |f| %>
+    <% if @comment.errors.full_messages.any? %>
+      <ul>
+        <p>You had some errors:</p>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <%= f.text_area :body %>
     <%= f.submit 'Submit' %>
   <% end %>
